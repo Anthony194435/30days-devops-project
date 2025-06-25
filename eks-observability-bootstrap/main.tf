@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "git::https://github.com/Anthony194435/30days-devops-project/terraform-modules-infra.git//vpc?ref=develop"
+  source = "git::https://github.com/Anthony194435/30days-devops-project.git//terraform-modules-infra/vpc?ref=develop"
 
   vpc_name            = var.vpc_name
   vpc_cidr            = var.vpc_cidr
@@ -12,14 +12,14 @@ module "vpc" {
 }
 
 module "iam" {
-  source = "git::https://github.com/Anthony194435/30days-devops-project/terraform-modules-infra.git//iam?ref=develop"
+  source = "git::https://github.com/Anthony194435/30days-devops-project.git//terraform-modules-infra/iam?ref=develop"
 
   name = "eks-dev"
   tags = var.tags
 }
 
 module "eks" {
-  source = "git::https://github.com/Anthony194435/30days-devops-project/terraform-modules-infra.git//eks?ref=develop"
+  source = "git::https://github.com/Anthony194435/30days-devops-project.git//terraform-modules-infra/eks?ref=develop"
 
   cluster_name                              = var.cluster_name
   cluster_version                           = var.cluster_version
