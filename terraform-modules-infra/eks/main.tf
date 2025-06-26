@@ -21,8 +21,8 @@ module "eks" {
   access_entries         = var.access_entries
 
   # 🔑 Custom IAM roles
-  cluster_role_arn       = var.cluster_role_arn
-  node_iam_role_arn      = var.node_role_arn
+  # cluster_role_arn       = var.cluster_role_arn
+  # node_iam_role_arn      = var.node_role_arn
 
   tags = var.tags
 }
