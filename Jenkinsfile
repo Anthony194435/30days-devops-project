@@ -15,12 +15,19 @@ pipeline {
             }
         }
 
+        stage('Clean .terraform Cache') {
+            steps {
+                dir('eks-observability-bootstrap') {
+                    sh 'rm -rf .terraform .terraform.lock.hcl'
+                }
+            }
+        }
+
         stage('Terraform Init') {
             steps {
                 dir('eks-observability-bootstrap') {
                     sh 'terraform version'
                     sh 'terraform init -reconfigure'
-                    sh 'terraform init'
                 }
             }
         }
