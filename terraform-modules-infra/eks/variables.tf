@@ -16,14 +16,14 @@ variable "access_entries" { type = any }
 
 variable "tags" { type = map(string) }
 
-variable "cluster_role_arn" {
-  type        = string
-  description = "ARN of IAM role for EKS control plane"
-}
+# variable "cluster_role_arn" {
+#   type        = string
+#   description = "ARN of IAM role for EKS control plane"
+# }
 
-variable "node_role_arn" {
-  type        = string
-  description = "ARN of IAM role for EKS worker nodes"
-}
+# variable "node_role_arn" {
+#   type        = string
+#   description = "ARN of IAM role for EKS worker nodes"
+# }
 
 

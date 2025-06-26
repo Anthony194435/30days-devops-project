@@ -37,8 +37,8 @@ module "eks" {
   cluster_compute_config           = var.cluster_compute_config
   access_entries                   = var.access_entries
 
-  cluster_role_arn  = module.iam.cluster_role_arn
-  node_role_arn     = module.iam.node_role_arn
+  # cluster_role_arn  = module.iam.cluster_role_arn
+  # node_role_arn     = module.iam.node_role_arn
 
   tags = var.tags
 }
