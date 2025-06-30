@@ -7,18 +7,19 @@ pipeline {
     }
 
     stages {
+
+        stage('Clean Jenkins Workspace') {
+          steps {
+            deleteDir() // wipes the workspace completely before the next stage
+          }
+        }
+
         stage('Clone GitHub Repo') {
             steps {
                 git url: 'https://github.com/Anthony194435/30days-devops-project.git',
                     credentialsId: 'GitHub-Pat',
                     branch: 'develop'
             }
-        }
-
-        stage('Clean Jenkins Workspace') {
-          steps {
-            deleteDir() // wipes the workspace completely before the next stage
-          }
         }
 
 
