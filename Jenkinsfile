@@ -61,7 +61,6 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                input message: 'Proceed with Terraform Apply?'
                 dir('eks-observability-bootstrap') {
                     sh 'terraform apply -auto-approve tfplan'
                 }
