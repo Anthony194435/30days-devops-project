@@ -56,7 +56,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 dir('eks-observability-bootstrap') {
-                    sh 'terraform plan -out=tfplan'
+                    sh 'terraform plan'
                 }
             }
         }
@@ -64,7 +64,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 dir('eks-observability-bootstrap') {
-                    sh 'terraform destroy -auto-approve tfplan'
+                    sh 'terraform destroy -auto-approve'
                 }
             }
         }
