@@ -9,9 +9,9 @@ pipeline {
     stages {
 
         stage('Clean Jenkins Workspace') {
-          steps {
-            deleteDir() // wipes the workspace completely before the next stage
-          }
+            steps {
+                deleteDir()
+            }
         }
 
         stage('Clone GitHub Repo') {
@@ -22,6 +22,11 @@ pipeline {
             }
         }
 
+        stage('Print Branch') {
+            steps {
+                sh 'echo "Checked out branch: $BRANCH_NAME"'
+            }
+        }
 
         stage('Clean .terraform Cache') {
             steps {
@@ -57,9 +62,6 @@ pipeline {
         }
 
         stage('Terraform Apply') {
-            when {
-                branch 'develop'
-            }
             steps {
                 dir('eks-observability-bootstrap') {
                     sh 'terraform apply -auto-approve tfplan'
