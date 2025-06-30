@@ -15,6 +15,13 @@ pipeline {
             }
         }
 
+        stage('Clean Jenkins Workspace') {
+          steps {
+            deleteDir() // wipes the workspace completely before the next stage
+          }
+        }
+
+
         stage('Clean .terraform Cache') {
             steps {
                 dir('eks-observability-bootstrap') {
