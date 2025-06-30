@@ -44,6 +44,9 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
+provider "aws" {
+  region = var.aws_region
+}
 data "aws_availability_zones" "available" {}
 
 resource "aws_security_group" "eks" {
@@ -68,4 +71,17 @@ resource "aws_security_group" "eks" {
   tags = {
     Name = "eks-sg"
   }
+<<<<<<< HEAD
+=======
+
+  public_subnet_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                      = "1"
+  }
+
+  private_subnet_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb"             = "1"
+  }
+>>>>>>> fccfe3969647d623e5c9803fd837b995746ceb5c
 }
